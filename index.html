@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="reg">
+    <div id="reg">
         <h1>Register Your team</h1>
         <form class="form">
             <label for="name">
-            <input type="text" placeholder="Enter your team name" class="input">
+                <input type="text" class="input" placeholder="Enter your team name" id="teamname" required>
             </label>
             <label for="experience">
                 <input type="text" placeholder="Enter your team experience" class="input">
@@ -22,6 +22,16 @@
             </label>
         </form>
         <button class="btn">Submit</button>
+    </div>
+    <div class="main" id="section">
+        <h1></h1>
+        <div class="team">
+            <div class="teamhead">Make your Team <span class="downarrow">▼</span></div>
+            <div class="categories">
+            <div class="batsman">Batsman <span class="batter">✚</span></div>
+            <div class="bowlers">Bowler <span class="bowler">✚</span></div>
+            <div class="additional">Additional <span class="additionals">✚</span></div></div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
