@@ -1,3 +1,19 @@
+function runPrompt() {
+    let button = document.querySelector("#sub")
+    button.addEventListener("click", () => {  
+        let box = document.querySelector(".box");
+        if (document.querySelector(".input1").value === "") {
+            alert("Please enter your player's name!!!");
+            return;
+        }
+        document.querySelector(".box").classList.remove("show")
+    });
+}
+function addPlayer() {
+    let box = document.querySelector(".box");
+    box.classList.add("show");
+    runPrompt();
+}
 document.querySelector(".btn").addEventListener("click" , ()=>{
     let teamName = document.querySelector(".input").value
     console.log(teamName);
@@ -12,3 +28,6 @@ document.querySelector(".btn").addEventListener("click" , ()=>{
 document.querySelector(".downarrow").addEventListener("click" , ()=>{
     document.querySelector(".categories").classList.toggle("show")
 })
+document.querySelector(".batter").addEventListener("click" , ()=>{ addPlayer();})
+document.querySelector(".bowler").addEventListener("click" , ()=>{addPlayer();})
+document.querySelector(".additionals").addEventListener("click" , ()=>{addPlayer();})
