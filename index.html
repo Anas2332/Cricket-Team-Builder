@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cricket Team Registration</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div id="reg">
@@ -28,10 +29,11 @@
         <div class="team">
             <div class="teamhead">Make your Team <span class="downarrow">▼</span></div>
             <div class="categories">
-            <div class="batsman">Batsman <span class="batter">✚</span></div>
-            <div class="bowlers">Bowler <span class="bowler">✚</span></div>
-            <div class="additional">Additional <span class="additionals">✚</span></div></div>
+            <div class="batsman">Batsman <span class="addbatter">✚</span></div>
+            <div class="bowlers">Bowler <span class="addbowler">✚</span></div>
+            <div class="additional">Additional <span class="add-additionals">✚</span></div></div>
         </div>
+        <button class="btn2 hidden">Your Team</button>
     </div>
     <div class="container"><div class="box">
         <form>
@@ -41,6 +43,22 @@
         </form>
         <button class="btn1" id="sub">Submit</button>
         </div>
+    </div>
+    <div class="yourTeam" id="team">
+        <h1 class="teamName">Your Team</h1>
+        <div>
+            <h2 class="bat">Batter</h2>
+            <div class="batter"></div>
+        </div>
+        <div>
+            <h2 class="bowl">Bowler</h2>
+            <div class="bowler"></div>
+        </div>
+        <div>
+            <h2 class="add">Additional</h2>
+            <div class="additionals"></div>
+        </div>
+        <button class="btn3">Build Team</button>
     </div>
     <script src="script.js"></script>
 </body>
