@@ -294,15 +294,58 @@ p{
     .btn{
         padding: 20px 50px;
     }
-    .main{
-        margin: 60px 30px;
+    .main {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 50px 10px;
+        padding: 10px;
+        flex-direction: column;
+        gap: 10px;
     }
-    .team{
-        padding: 30px 0px;
+    .team {
+        padding: 20px 10px;
         margin: 10px 0px;
-        gap: 20px;
+        gap: 10px;
     }
-    .teamhead{
-        font-size: 22px;
+    .teamhead {
+        font-size: 20px;
+    }
+    .batsman, .bowlers, .additional {
+        font-size: 18px;
+        padding: 10px;
+    }
+    .addbatter, .addbowler, .add-additionals {
+        margin-left: 20px;
+    }
+    .btn2, .btn3 {
+        padding: 15px 50px;
+        white-space: nowrap;
+        font-size: 12px;
+    }
+    .yourTeam {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+    .bat, .bowl, .add {
+        font-size: 16px;
+        padding: 5px;
+    }
+    .bow, .batt, .addition {
+        padding: 5px;
+    }
+    .box {
+        width: 270px;
+        height: 180px;
+        left: 12px;
+    }
+    .input1 {
+        padding: 10px;
+        font-size: 14px;
+    }
+    .btn1 {
+        padding: 10px 15px;
+        font-size: 14px;
     }
 }
