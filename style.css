@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body{
     background-color: #1E1B26;   
 } 
@@ -298,14 +303,14 @@ p{
         position: absolute;
         left: 0;
         top: 0;
-        width: 100%;
+        max-width: 100%;
         margin: 50px 10px;
         padding: 10px;
         flex-direction: column;
         gap: 10px;
     }
     .team {
-        padding: 20px 10px;
+        padding: 10px 0px;
         margin: 10px 0px;
         gap: 10px;
     }
@@ -314,31 +319,37 @@ p{
     }
     .batsman, .bowlers, .additional {
         font-size: 18px;
-        padding: 10px;
+        padding: 10px 5px;
     }
     .addbatter, .addbowler, .add-additionals {
         margin-left: 20px;
     }
     .btn2, .btn3 {
         padding: 15px 50px;
+        margin-left: 14px;
         white-space: nowrap;
         font-size: 12px;
     }
     .yourTeam {
-        margin: 20px 10px;
-        padding: 20px;
+        max-width: 100%;
+        width: 90%;
+        margin: 30px 10px;
+        padding: 15px 10px;
     }
     .bat, .bowl, .add {
         font-size: 16px;
         padding: 5px;
+        max-width: 100%;
     }
     .bow, .batt, .addition {
         padding: 5px;
+        max-width: 100%;
     }
     .box {
-        width: 270px;
+        width: 220px;
         height: 180px;
-        left: 12px;
+        top: -10px;
+        left: 9px;
     }
     .input1 {
         padding: 10px;
