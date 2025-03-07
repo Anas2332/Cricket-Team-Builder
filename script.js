@@ -4,6 +4,25 @@ let additional = [];
 let reg = document.querySelector("#reg");
 let main = document.querySelector(".main");
 let team = document.querySelector(".yourTeam");
+function update() {
+    if (batter.length + bowler.length === 11) {
+        document.querySelector(".batsman").classList.add("hidden")
+        document.querySelector(".bowlers").classList.add("hidden")
+    }else{
+        document.querySelector(".batsman").classList.remove("hidden");
+        document.querySelector(".bowlers").classList.remove("hidden");
+    }
+    if (additional.length === 4) {
+        document.querySelector(".additional").classList.add("hidden");
+    } else {
+        document.querySelector(".additional").classList.remove("hidden");
+    }
+    if (bowler.length === 0 && batter.length === 0 && additional.length === 0) {
+        document.querySelector(".btn2").classList.add("hidden");
+    } else {
+        document.querySelector(".btn2").classList.remove("hidden");
+    }
+}
 function myTeam() {
     document.querySelector(".bowler").innerHTML = "";
     document.querySelector(".batter").innerHTML = "";
@@ -13,10 +32,20 @@ function myTeam() {
         div.className = "bow"
         let icon = document.createElement("i");
         icon.className = "fas fa-times";
+        icon.id = "fa"
         let p = document.createElement("p");
         p.innerText = e;
         div.append(p , icon);
         document.querySelector(".bowler").append(div)
+        icon.addEventListener('click', ()=>{
+            let val = icon.previousSibling.textContent;
+            bowler = bowler.filter(e => e !== val)
+            div.remove();
+            document.querySelector(".remove").classList.remove("shown");
+            void document.querySelector(".remove").offsetWidth;
+            document.querySelector(".remove").classList.add("shown");
+            update()
+        })
     })
     batter.forEach(e =>{
         let div1 = document.createElement("div");
@@ -26,7 +55,16 @@ function myTeam() {
         let p = document.createElement("p");
         p.innerText = e;
         div1.append(p , icon)
-        document.querySelector(".batter").append(div1)
+        document.querySelector(".batter").append(div1);
+        icon.addEventListener('click', ()=>{
+            let val = icon.previousSibling.textContent;
+            batter = batter.filter(e => e !== val)
+            div1.remove();
+            document.querySelector(".remove").classList.remove("shown");
+            void document.querySelector(".remove").offsetWidth;
+            document.querySelector(".remove").classList.add("shown");
+            update()
+        })
     })
     additional.forEach(e =>{
         let div2 = document.createElement("div");
@@ -36,8 +74,18 @@ function myTeam() {
         let p = document.createElement("p");
         p.innerText = e;
         div2.append(p,icon)
-        document.querySelector(".additionals").append(div2)
+        document.querySelector(".additionals").append(div2);
+        icon.addEventListener('click', ()=>{
+            let val = icon.previousSibling.textContent;
+            additional = additional.filter(e => e !== val);
+            div2.remove();
+            document.querySelector(".remove").classList.remove("shown");
+            void document.querySelector(".remove").offsetWidth;
+            document.querySelector(".remove").classList.add("shown");
+            update()
+        })
     })
+    update();
 }
 function runPrompt(category) {
     let button = document.querySelector("#sub");
@@ -46,7 +94,16 @@ function runPrompt(category) {
     newbtn.addEventListener("click", () => {
         let playerInp = document.querySelector(".box .input1")
         if (playerInp.value === "") {
-            alert("Please enter your player's name!!!");
+            document.querySelector(".notadded").classList.remove("shown");
+            void document.querySelector(".notadded").offsetWidth;
+            document.querySelector(".notadded").classList.add("shown");
+            return;
+        }
+        let value = document.querySelector(".input1").value;
+        if (batter.some(e => e === value) || bowler.some(e => e === value) || additional.some(e => e === value)) {
+            document.querySelector(".exist").classList.remove("shown");
+            void document.querySelector(".exist").offsetWidth;
+            document.querySelector(".exist").classList.add("shown");
             return;
         }
         let val = playerInp.value;
@@ -57,10 +114,10 @@ function runPrompt(category) {
         }else{
             additional.push(val)
         }
-        if (batter.length > 0 || bowler.length > 0 || additional.length > 0) {
-            document.querySelector(".btn2").classList.remove("hidden")
-        }
         myTeam();
+        document.querySelector(".added").classList.remove("shown")
+        void document.querySelector(".added").offsetWidth;
+        document.querySelector(".added").classList.add("shown");
         document.querySelector(".box").classList.remove("show")
         playerInp.value = "";
     });
@@ -73,7 +130,9 @@ function addPlayer(category) {
 document.querySelector(".btn").addEventListener("click" , ()=>{
     let teamName = document.querySelector(".input").value
     if (teamName === "") {
-        alert("Please enter your team name!!!")
+        document.querySelector(".reg").classList.remove("shown");
+        void document.querySelector(".reg").offsetWidth;
+        document.querySelector(".reg").classList.add("shown");
         return;
     }
     reg.style.display = "none";
@@ -92,5 +151,5 @@ document.querySelector(".btn2").addEventListener("click", ()=>{
 })
 document.querySelector(".btn3").addEventListener("click", ()=>{
     team.style.display = "none";
-    main.style.display = "block"
+    main.style.display = "block";
 })

@@ -18,6 +18,7 @@ body{
     gap: 30px;
     margin: 60px;
     border-radius: 10px;
+    padding-top:20px;
 }
 h1{
     color: #E0C97F;
@@ -168,25 +169,26 @@ h1{
 .bat{
     display: flex;
     color:rgba(224, 201, 127, .9);
-    padding: 0;
+    padding: 4px 0;
     font-size: 22px;
 }
 .bowl{
     display: flex;
     color:rgba(224, 201, 127, .9);
-    padding: 8px;
+    padding: 4px 0;
     font-size: 22px;
 }
 .add{
     display: flex;
     color:rgba(224, 201, 127, .9);
-    padding: 8px;
+    padding: 4px 0;
     font-size: 22px;
 }
 .fas{
     margin-top: 20px;
     color: rgba(255, 0, 0, 0.7);
     font-size: 20px;
+    cursor: pointer;
 }
 .bow , .batt , .addition{
     display: flex;
@@ -196,6 +198,7 @@ h1{
 }
 p{
     font-size: 18px;
+    color: rgba(0, 0, 0, 0.7);
 }
 .btn3{
     background-color: #8B5CF6;
@@ -268,6 +271,90 @@ p{
 .yourTeam{
     display: none;
 }
+@keyframes slideIn {
+    from {
+        transform: translateX(300px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(300px);
+        opacity: 0;
+    }
+}
+.added {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    transform: translateX(300px);
+}
+.notadded{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: red;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    transform: translateX(300px);
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.reg{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: red;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    transform: translateX(300px);
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.shown {
+    animation: slideIn 0.5s ease-out forwards,
+               slideOut 0.5s ease-in forwards 1s;
+}
+.exist{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: blue;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    transform: translateX(300px);
+}
+.remove{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: green;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    transform: translateX(300px);
+}
 @media(max-width:768px){
     #reg{
         padding: 20px;
@@ -304,7 +391,8 @@ p{
         left: 0;
         top: 0;
         max-width: 100%;
-        margin: 50px 10px;
+        margin: 50px 25px;
+        margin-left: 40px;
         padding: 10px;
         flex-direction: column;
         gap: 10px;
@@ -349,7 +437,7 @@ p{
         width: 220px;
         height: 180px;
         top: -10px;
-        left: 9px;
+        left: 35px;
     }
     .input1 {
         padding: 10px;
@@ -358,5 +446,22 @@ p{
     .btn1 {
         padding: 10px 15px;
         font-size: 14px;
+    }
+    .yourTeam{
+        margin: 30px 10px;
+        padding: 15px 10px;
+    }
+    .teamName{
+        font-size: 16px;
+    }
+    .btn3{
+        padding: 15px 50px;
+        margin-left: 30px;
+        white-space: nowrap;
+        font-size: 12px;
+    }
+    .batsman, .bowlers, .additional {
+        font-size: 14px;
+        padding: 10px 5px;
     }
 }
