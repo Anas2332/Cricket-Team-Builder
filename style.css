@@ -162,6 +162,8 @@ h1{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     margin: 60px 450px;
     border-radius: 10px;    
     padding: 50px;
@@ -392,8 +394,8 @@ p{
         top: 0;
         max-width: 100%;
         margin: 50px 25px;
-        margin-left: 40px;
-        padding: 10px;
+        margin-left: 60px;
+        padding: 20px;
         flex-direction: column;
         gap: 10px;
     }
@@ -434,10 +436,10 @@ p{
         max-width: 100%;
     }
     .box {
-        width: 220px;
+        width: 250px;
         height: 180px;
         top: -10px;
-        left: 35px;
+        left: 40px;
     }
     .input1 {
         padding: 10px;
@@ -448,8 +450,10 @@ p{
         font-size: 14px;
     }
     .yourTeam{
-        margin: 30px 10px;
-        padding: 15px 10px;
+        margin: 30px 15px;
+        padding: 20px;
+        width: 90%;
+        max-width: 450px;
     }
     .teamName{
         font-size: 16px;
