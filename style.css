@@ -5,7 +5,7 @@
 }
 body{
     background-color: #1E1B26;   
-} 
+}
 .hidden{
     display: none !important;
 } 
@@ -26,18 +26,22 @@ h1{
     font-size: 40px;
 }
 .input{
-    background: none;
+    width: 400px;
+    border:none;
+    background-color: #382a4e;
+    border-bottom: 1px solid #d89800;
     outline: none;
-    border: none;
+    padding: 10px;
     font-size: 16px;
-    color: black;
-    border-bottom: 1px solid  #d89800;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 100px;
+    color: #E0C97F;
 }
 .input::placeholder{
     color:rgba(224, 201, 127, .5);
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 .btn{
     background-color: #8B5CF6;
@@ -157,6 +161,14 @@ h1{
     top: 0;
     display: none;
 }
+.team-cont{
+    background-color: #382a4e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 .yourTeam{
     background-color: #382a4e;
     display: flex;
@@ -164,7 +176,7 @@ h1{
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 60px 450px;
+    margin: 60px 0px;
     border-radius: 10px;    
     padding: 50px;
 }
@@ -187,16 +199,16 @@ h1{
     font-size: 22px;
 }
 .fas{
-    margin-top: 20px;
-    color: rgba(255, 0, 0, 0.7);
+    margin-top: 0px;
+    color: rgba(216, 152, 0, 0.8);
     font-size: 20px;
     cursor: pointer;
 }
 .bow , .batt , .addition{
     display: flex;
     justify-content: space-between;
-    padding: 0;
-    border-bottom: 1px solid  rgba(216, 152, 0, .3);
+    margin-bottom: 4px;
+    border-bottom: 1px solid rgba(216, 152, 0, .3);
 }
 p{
     font-size: 18px;
@@ -210,13 +222,36 @@ p{
     cursor: pointer;
     color: #E0C97F;
     transition: all 0.3s ease-in-out;
-    margin: 30px;
     border-radius: 8px;
+    white-space: nowrap;
 }
 .btn3:hover{
     background-color: #A78BFA;
     box-shadow: 0 6px 15px rgba(139, 92, 246, 0.6);
     transform: translateY(-2px);
+}
+.btn4{
+    background-color: #8B5CF6;
+    border: none;
+    padding: 20px 100px;
+    box-shadow: 0 4px 10px rgba(139, 92, 246, 0.4);
+    cursor: pointer;
+    color: #E0C97F;
+    transition: all 0.3s ease-in-out;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+.btn4:hover{
+    background-color: #A78BFA;
+    box-shadow: 0 6px 15px rgba(139, 92, 246, 0.6);
+    transform: translateY(-2px);
+}
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
 }
 .container {
     display: flex;
@@ -237,6 +272,7 @@ p{
     border-radius: 10px;
     position: absolute;
     top: 0;
+    margin-right: 40px;
     transform: translateY(-100%);
     transition: transform 0.8s ease-in-out;
 }
@@ -272,6 +308,81 @@ p{
 }
 .yourTeam{
     display: none;
+}
+#team2{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.team-cont2{
+    background-color: #382a4e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 60px 500px;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+.team-cont2-head{
+    font-size: 30px;
+    color: #C3A2FF;
+    text-shadow: 0 0 10px rgba(195, 162, 255, 0.8), 0 0 20px rgba(195, 162, 255, 0.6);
+}
+.team-cont2-body{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+    gap: 10px;
+    position:relative;
+    left: -20px;
+}
+.player{
+    font-size: 20px;
+    color: #E0C97F;
+    text-shadow: 0 0 10px rgba(224, 201, 127, 0.8), 0 0 20px rgba(224, 201, 127, 0.6);
+    text-align: left;
+}
+.bowler1{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-left: 10px;
+}
+.names{
+    font-size: 30px;
+    color: #C3A2FF;
+    text-shadow: 0 0 10px rgba(195, 162, 255, 0.8), 0 0 20px rgba(195, 162, 255, 0.6);
+}
+.summary h2{
+    font-size: 30px;
+    color: #C3A2FF;
+    text-shadow: 0 0 10px rgba(195, 162, 255, 0.8), 0 0 20px rgba(195, 162, 255, 0.6);
+}
+.summary-body{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    line-height: 1.6;
+}
+.btn5{
+    margin-top: 20px;
+    background-color: #8B5CF6;
+    border: none;
+    padding: 20px 100px;
+    box-shadow: 0 4px 10px rgba(139, 92, 246, 0.4);
+    cursor: pointer;
+    color: #E0C97F;
+    transition: all 0.3s ease-in-out;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+.btn5:hover{
+    background-color: #A78BFA;
+    box-shadow: 0 6px 15px rgba(139, 92, 246, 0.6);
+    transform: translateY(-2px);
 }
 @keyframes slideIn {
     from {
@@ -357,6 +468,30 @@ p{
     font-size: 16px;
     transform: translateX(300px);
 }
+.correct{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: green;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    transform: translateX(300px);
+}
+.error{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: red;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    transform: translateX(300px);
+}
 @media(max-width:768px){
     #reg{
         padding: 20px;
@@ -369,6 +504,37 @@ p{
     }
     .input{
         padding: 20px;
+        width: 330px;
+    }
+    .input::placeholder{
+        position: absolute;
+        left: 0;
+        font-size: 13px;
+    }
+    .added,
+    .notadded,
+    .exist,
+    .remove,
+    .reg,
+    .correct,
+    .error {
+        right: 10px;
+        max-width: 80%;
+        font-size: 14px;
+        padding: 12px 15px;
+    }
+    .team-cont2.hidden {
+        transition: opacity 0.3s ease-out;
+        opacity: 0;
+    }
+    .team-cont {
+        transition: all 0.3s ease-in-out;
+    }
+    .yourTeam {
+        transition: margin 0.3s ease;
+    }
+    .btn3, .btn4, .btn5 {
+        transition: all 0.3s ease;
     }
 }
 @media(max-width:446px){
@@ -381,9 +547,14 @@ p{
         font-size: 20px ;
     }
     .input{
-        padding: 1px;
         padding-bottom: 10px;
         padding-top: 15px;
+        width: 310px;
+    }
+    .input::placeholder{
+        font-size: 12px;
+        position: absolute;
+        left: 0;
     }
     .btn{
         padding: 20px 50px;
@@ -393,9 +564,8 @@ p{
         left: 0;
         top: 0;
         max-width: 100%;
-        margin: 50px 25px;
-        margin-left: 60px;
-        padding: 20px;
+        margin: 60px 70px;
+        padding: 30px;
         flex-direction: column;
         gap: 10px;
     }
@@ -439,7 +609,7 @@ p{
         width: 250px;
         height: 180px;
         top: -10px;
-        left: 40px;
+        left: 70px;
     }
     .input1 {
         padding: 10px;
@@ -459,13 +629,41 @@ p{
         font-size: 16px;
     }
     .btn3{
-        padding: 15px 50px;
-        margin-left: 30px;
+        padding: 15px 85px;
         white-space: nowrap;
         font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .btn4{
+        padding: 16px 80px;
+        margin-left: 14px;
+        white-space: nowrap;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .btn5{
+        padding: 16px 80px;
+        white-space: nowrap;
+        font-size: 12px;
+    }
+    .btns{
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
     }
     .batsman, .bowlers, .additional {
         font-size: 14px;
         padding: 10px 5px;
+    }
+    .team-cont2{
+        margin: 60px 60px;
+        padding: 30px 30px;
     }
 }

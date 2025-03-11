@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cricket Team Registration</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -12,14 +13,17 @@
         <h1>Register Your team</h1>
         <form class="form">
             <label for="name">
-                <input type="text" class="input" placeholder="Enter your team name" id="teamname" required>
+                <input type="text" class="input" placeholder="Enter your team name" id="teamname" required oninput="validateName(this)">
             </label>
             <label for="experience">
-                <input type="text" placeholder="Enter your team experience" class="input">
+                <input type="number" placeholder="Enter team's experience ((1-50)years)" class="input" id="experience" min="1" max="50" oninput="validateExperience(this)">
+            </label>
+            <label for="format">
+                <input type="text" placeholder="Enter team's format(T20,ODI,TEST)" class="input" id="format">
             </label>
             <label for="strategy">
-                <input type="text" placeholder="Enter your team's strategy"
-                class="input">
+                <input type="text" placeholder="Enter team's strategy(defensive,aggressive,balanced)"
+                class="input" id="strategy">
             </label>
             <button class="btn" type="button">Submit</button>
         </form>
@@ -38,29 +42,49 @@
     <div class="container"><div class="box">
         <form>
             <label for="input1">
-                <input class="input1" type="text" placeholder="Enter your player's name" required>
+                <input class="input1" type="text" placeholder="Enter your player's name" required oninput="validateName(this)"> 
             </label>
         </form>
         <button class="btn1" id="sub">Submit</button>
         </div>
     </div>
-    <div class="yourTeam" id="team">
-        <h1 class="teamName">Your Team</h1>
-        <div>
-            <h2 class="bat">Batter</h2>
-            <div class="batter"></div>
+    <div class="team-cont">
+        <div class="yourTeam" id="team">
+            <h1 class="teamName">Your Team</h1>
+            <div>
+                <h2 class="bat">Batter</h2>
+                <div class="batter"></div>
+            </div>
+            <div>
+                <h2 class="bowl">Bowler</h2>
+                <div class="bowler"></div>
+            </div>
+            <div>
+                <h2 class="add">Additional</h2>
+                <div class="additionals"></div>
+            </div>
+            <div class="btns">
+                <button class="btn3">Build Team</button>
+                <button class="btn4">Confirm Team</button>
+            </div>
         </div>
-        <div>
-            <h2 class="bowl">Bowler</h2>
-            <div class="bowler"></div>
-        </div>
-        <div>
-            <h2 class="add">Additional</h2>
-            <div class="additionals"></div>
-        </div>
-        <button class="btn3">Build Team</button>
     </div>
-    
+    <div class="team-cont2 hidden" id="team2">
+        <div class="team-cont2-head">
+            <h1 class="teamName"></h1>
+        </div>
+        <div class="team-cont2-body">
+            <h4 class="names">Team Player's</h4>
+            <div class="batter1"></div>
+            <div class="bowler1"></div>
+            <div class="additionals1"></div>
+        </div>
+        <div class="summary">
+            <h2>Summary</h2>
+            <div class="summary-body"></div>
+            <button class="btn5">Clear All</button>
+        </div>
+    </div>
     <div class="added">
         <h4>Player added sucessfully</h4>
     </div>
@@ -74,7 +98,13 @@
         <h4>Player removed sucessfully</h4>
     </div>
     <div class="reg">
-        <h4>Please enter your team name</h4>
+        <h4>Please fill the form</h4>
+    </div>
+    <div class="correct">
+        <h4>Team created sucessfully</h4>
+    </div>
+    <div class="error">
+        <h4>Please fill the form correctly</h4>
     </div>
     <script src="script.js"></script>
 </body>

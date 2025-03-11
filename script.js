@@ -1,9 +1,39 @@
+function clearAll(){
+    batter = [];
+    bowler = [];
+    additional = [];
+    experience = "";
+    strategy = "";
+    format = "";
+    document.querySelector(".batter1").innerHTML = "";
+    document.querySelector(".bowler1").innerHTML = "";
+    document.querySelector(".additionals1").innerHTML = "";
+    document.querySelector(".summary-body").innerHTML = "";
+    document.querySelector(".team-cont2").classList.add("hidden");
+    document.querySelector("#reg").style.display = "block";
+    document.querySelector(".btn5").style.display = "none";
+    document.querySelectorAll("input").forEach(e => {e.value = ""});
+    document.querySelector(".btn2").classList.add("hidden");
+}
 let batter = [];
 let bowler = [];
 let additional = [];
+let experience = "";
 let reg = document.querySelector("#reg");
 let main = document.querySelector(".main");
 let team = document.querySelector(".yourTeam");
+let team2 = document.querySelector(".team-cont2");
+function validateExperience(input) {
+    if (input.value < 1 || input.value > 50) {
+        input.value = 0;
+    }
+}
+function validateName(input) {
+    if (input.value.length > 15) {
+        input.value = input.value.slice(0, 15);
+    }
+    input.value = input.value.replace(/[^a-zA-Z]/g, '');
+}
 function update() {
     if (batter.length + bowler.length === 11) {
         document.querySelector(".batsman").classList.add("hidden")
@@ -21,6 +51,11 @@ function update() {
         document.querySelector(".btn2").classList.add("hidden");
     } else {
         document.querySelector(".btn2").classList.remove("hidden");
+    }
+    if (batter.length + bowler.length === 11 && additional.length === 4) {
+        document.querySelector(".btn4").classList.remove("hidden");
+    } else {
+        document.querySelector(".btn4").classList.add("hidden");
     }
 }
 function myTeam() {
@@ -128,15 +163,32 @@ function addPlayer(category) {
     runPrompt(category);
 }
 document.querySelector(".btn").addEventListener("click" , ()=>{
-    let teamName = document.querySelector(".input").value
-    if (teamName === "") {
+    let teamName = document.querySelector(".input").value;
+    experience = document.querySelector("#experience").value;
+    strategy = document.querySelector("#strategy").value;
+    format = document.querySelector("#format").value;
+    if (teamName === "" || experience === "" || strategy === "" || format === "") {
         document.querySelector(".reg").classList.remove("shown");
         void document.querySelector(".reg").offsetWidth;
         document.querySelector(".reg").classList.add("shown");
         return;
     }
+    if (format !== "T20" && format !== "ODI" && format !== "TEST") {
+        document.querySelector(".error").classList.remove("shown");
+        void document.querySelector(".error").offsetWidth;
+        document.querySelector(".error").classList.add("shown");
+        return;
+    }
+    if (strategy !== "defensive" && strategy !== "aggressive" && strategy !== "balanced") {
+        document.querySelector(".error").classList.remove("shown");
+        void document.querySelector(".error").offsetWidth;
+        document.querySelector(".error").classList.add("shown");
+        return;
+    }
     reg.style.display = "none";
-    document.querySelector(".teamName").innerText = teamName;
+    document.querySelectorAll(".teamName").forEach(element => {
+        element.innerText = teamName;
+    });
     main.style.display = "block";
 })
 document.querySelector(".downarrow").addEventListener("click" , ()=>{
@@ -153,3 +205,38 @@ document.querySelector(".btn3").addEventListener("click", ()=>{
     team.style.display = "none";
     main.style.display = "block";
 })
+document.querySelector(".btn4").addEventListener("click", ()=>{
+    team.style.display = "none";
+    team2.classList.remove("hidden");
+    batter.forEach(e =>{
+        let h4 = document.createElement("h4");
+        h4.className = "player";
+        h4.innerText = "Batsman : " + e;
+        document.querySelector(".batter1").append(h4);
+    })
+    bowler.forEach(e =>{
+        let h4 = document.createElement("h4");
+        h4.className = "player";
+        h4.innerText = "Bowler : " + e;
+        document.querySelector(".bowler1").append(h4);
+   })
+   additional.forEach(e =>{
+    let h4 = document.createElement("h4");
+    h4.className = "player";
+    h4.innerText = "Additional : " + e;
+    document.querySelector(".additionals1").append(h4);
+})
+    let summary = document.createElement("h4");
+    summary.className = "player";
+    summary.innerText = `
+    Batsmen: ${batter.join(", ")}
+    Bowlers: ${bowler.join(", ")}
+    Additional Players: ${additional.join(", ")}
+    Team Strategy: ${strategy}
+    Experience: ${experience} years
+    Format: ${format}`;
+    document.querySelector(".summary-body").append(summary);
+    document.querySelector(".correct").classList.add("shown");
+    document.querySelector(".btn5").style.display = "block";
+})
+document.querySelector(".btn5").addEventListener("click", ()=>{clearAll()});
