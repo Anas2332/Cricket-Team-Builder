@@ -166,6 +166,7 @@ document.querySelector(".btn").addEventListener("click" , ()=>{
     let teamName = document.querySelector(".input").value;
     experience = document.querySelector("#experience").value;
     strategy = document.querySelector("#strategy").value;
+    strategy = strategy.toLowerCase()
     format = document.querySelector("#format").value;
     if (teamName === "" || experience === "" || strategy === "" || format === "") {
         document.querySelector(".reg").classList.remove("shown");
